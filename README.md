@@ -59,6 +59,8 @@ Insight:
 3. **Setup Hardware**:
    - Hubungkan komponen sesuai skema.
      ![schematic](assets/schematic.png)
+   - Pastikan pin: Soil Moisture (A0), DHT11 (D3), DS18B20 (D5), Relay (D6), LCD I2C (SDA/SCL).
+   - Gunakan power supply 5V eksternal untuk stabilitas.
 4. **Setup Blynk**:
    - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
    - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
