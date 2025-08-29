@@ -13,3 +13,35 @@ Insight:
 - Kebutuhan pangan nasional terus meningkat, sementara lahan pertanian & jumlah petani justru semakin menurun.
 - Artinya, "pertanian presisi" saat ini adalah suatu keharusan sebagai solusi dari permasalahan di Indonesia dan dunia.
 
+## Fitur Utama 
+- Monitoring real-time kelembaban tanah, suhu tanah, dan kelembaban udara via LCD dan Blynk.
+- Kontrol pompa otomatis (berdasarkan setpoint kelembaban) dan manual via aplikasi.
+- Desain hemat biaya untuk petani.
+- Skalabel untuk mendukung program ketahanan pangan di Banyuwangi.
+
+## Daftar Isi
+- [Kebutuhan](#kebutuhan)
+- [Instalasi & Setup](#instalasi--setup)
+- [Progres Live Coding](#progres-live-coding)
+- [Troubleshooting](#troubleshooting)
+- [Kontributor](#kontributor)
+- [Lisensi](#lisensi)
+- [Kontak](#kontak)
+
+## Kebutuhan
+
+### Hardware
+| Komponen             | Deskripsi                    | Pin NodeMCU |
+|----------------------|------------------------------|-------------|
+| NodeMCU ESP8266      | Mikrokontroler utama         | -           |
+| Soil Moisture Sensor | Kelembaban tanah             | A0          |
+| DHT11                | Kelembaban dan suhu udara    | D3          |
+| DS18B20              | Suhu tanah/air               | D5          |
+| Relay Module         | Kontrol pompa air            | D6          |
+| LCD I2C 16x2         | Display status               | SDA/SCL     |
+
+**Catatan**: Gunakan power supply 5V eksternal untuk stabilitas.
+
+### Software
+
+
