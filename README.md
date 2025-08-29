@@ -73,7 +73,7 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 - Kode: Inisialisasi library, pin konfigurasi, dan setup awal.
 - Hasil: LCD menyala, hardware siap untuk pembacaan sensor.
 
-     ![inisialisasi](assets/inisialisasi.png)
+     ![inisialisasi](assets/inisialisasi.jpg)
   
 2. **Tahap 2** : Pembacaan sensor dan output ke display LCD.
 3. **Tahap 3** : Kontrol pompa otomatis dan manual.
