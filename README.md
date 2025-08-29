@@ -22,6 +22,7 @@ Insight:
 ## Daftar Isi
 - [Kebutuhan](#kebutuhan)
 - [Instalasi & Setup](#instalasi--setup)
+- [Cara Penggunaan](#cara-penggunaan)
 - [Progres Live Coding](#progres-live-coding)
 - [Troubleshooting](#troubleshooting)
 - [Kontributor](#kontributor)
@@ -65,6 +66,14 @@ Insight:
    - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
    - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
 
+## Cara Penggunaan
+1. **Nyalakan Device**:
+   - Hubungkan NodeMCU ke power supply 5V.
+   - LCD menampilkan splash screen, lalu status: "Mst= %, T= C | Hum= %, P= OFF".
+2. **Monitoring Sensor**:
+   - Data kelembaban tanah (%), suhu tanah (°C), dan kelembaban udara (%) ditampilkan di LCD.
+   - Cek Serial Monitor untuk log data (9600 baud).
+     
 ## Progres dan Live Coding
 Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 1. **Tahap 1** : Inisialisasi Hardware dan display LCD.
@@ -72,10 +81,15 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 - LCD menampilkan splash screen: "EjoBIT | Smart Farming".
 - Kode: Inisialisasi library, pin konfigurasi, dan setup awal.
 - Hasil: LCD menyala, hardware siap untuk pembacaan sensor.
-
      ![inisialisasi](assets/inisialisasi.jpg)
   
 2. **Tahap 2** : Pembacaan sensor dan output ke display LCD.
+- Implementasi pembacaan sensor: Soil Moisture (A0), DHT11 (D3), DS18B20 (D5).
+- Kalibrasi soil moisture (AirValue=620, WaterValue=310) untuk skala 0-100%.
+- Output data ke LCD dengan format rapi.
+- Hasil: Data sensor ditampilkan di LCD (e.g., "Mst: 45% T: 28C"), akurasi ±5%.
+     ![tahap2](assets/tahap2.jpg)
+  
 3. **Tahap 3** : Kontrol pompa otomatis dan manual.
 4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi.
 
