@@ -67,7 +67,14 @@ Insight:
 
 ## Progres dan Live Coding
 Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
-1. **Tahap 1** : Inisialisasi Hardware dan display LCD. 
+1. **Tahap 1** : Inisialisasi Hardware dan display LCD.
+- Inisialisasi NodeMCU, sensor (Soil Moisture, DHT11, DS18B20), relay, dan LCD I2C.
+- LCD menampilkan splash screen: "EjoBIT | Smart Farming".
+- Kode: Inisialisasi library, pin konfigurasi, dan setup awal.
+- Hasil: LCD menyala, hardware siap untuk pembacaan sensor.
+
+     ![inisialisasi](assets/inisialisasi.png)
+  
 2. **Tahap 2** : Pembacaan sensor dan output ke display LCD.
 3. **Tahap 3** : Kontrol pompa otomatis dan manual.
 4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi.
