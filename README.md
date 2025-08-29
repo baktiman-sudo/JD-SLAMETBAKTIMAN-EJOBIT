@@ -57,7 +57,8 @@ Insight:
    - Buka Arduino IDE > `Sketch` > `Include Library` > `Manage Libraries`.
    - Cari dan install: `Blynk`, `DallasTemperature`, `OneWire`, `DHT`, `LiquidCrystal_I2C`
 3. **Setup Hardware**:
-   - Hubungkan komponen sesuai skema (tambahkan skematik).
+   - Hubungkan komponen sesuai skema.
+     ![schematic](assets/schematic.png)
 4. **Setup Blynk**:
    - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
    - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
