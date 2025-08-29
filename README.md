@@ -43,5 +43,22 @@ Insight:
 **Catatan**: Gunakan power supply 5V eksternal untuk stabilitas.
 
 ### Software
+- **Arduino IDE**: Versi 2.x ([download](<https://www.arduino.cc/en/software>)).
+- **Libraries**: Blynk, DallasTemperature, OneWire, DHT sensor, LiquidCrystal_I2C.
+- **Blynk App**: iOS/Android, template ID: `TMPL6fjy80emY`, token: `Q9oUo3wiN4FN60JEVAm-nWtfUMFSJnLh`.
+- **WiFi**: Koneksi stabil (hotspot/mobile data).
 
+## Instalasi & Setup
+1. **Install Arduino IDE**:
+   - Download dari [arduino.cc](<https://www.arduino.cc/en/software>).
+   - Tambah board ESP8266 di `Preferences` > `Additional Boards Manager URLs` > `http://arduino.esp8266.com/stable/package_esp8266com_index.json`.
+   - Install board ESP8266 via Boards Manager.
+2. **Install Libraries**:
+   - Buka Arduino IDE > `Sketch` > `Include Library` > `Manage Libraries`.
+   - Cari dan install: `Blynk`, `DallasTemperature`, `OneWire`, `DHT`, `LiquidCrystal_I2C`
+3. **Setup Hardware**:
+   - Hubungkan komponen sesuai skema (tambahkan skematik).
+4. **Setup Blynk**:
+   - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
+   - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
 
