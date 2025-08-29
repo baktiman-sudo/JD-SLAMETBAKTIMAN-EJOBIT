@@ -62,3 +62,12 @@ Insight:
    - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
    - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
 
+## Progres dan Live Coding
+Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
+1. **Tahap 1** : Inisialisasi Hardware dan display LCD. 
+2. **Tahap 2** : Pembacaan sensor dan output ke display LCD.
+3. **Tahap 3** : Kontrol pompa otomatis dan manual.
+4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi.
+
+## Kontributor
+- Slamet Baktiman - Full Stack IoT Developer
