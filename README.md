@@ -46,7 +46,7 @@ Insight:
 ### Software
 - **Arduino IDE**: Versi 2.x ([download](<https://www.arduino.cc/en/software>)).
 - **Libraries**: Blynk, DallasTemperature, OneWire, DHT sensor, LiquidCrystal_I2C.
-- **Blynk App**: iOS/Android, template ID: `TMPL6fjy80emY`, token: `Q9oUo3wiN4FN60JEVAm-nWtfUMFSJnLh`.
+- **Blynk App**: iOS/Android, template ID: `xxx`, token: `xxx`.
 - **WiFi**: Koneksi stabil (hotspot/mobile data).
 
 ## Instalasi & Setup
