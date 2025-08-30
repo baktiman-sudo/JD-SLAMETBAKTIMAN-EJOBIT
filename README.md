@@ -101,6 +101,7 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 - Mode otomatis: Pompa responsif terhadap kelembaban tanah.
 - Mode manual: Simulasi kontrol via kode (akan dihubungkan ke Blynk).
 - Hasil: Pompa nyala/mati stabil, LCD update status pompa.
+     ![tahap3](assets/tahap3.png)
   
 5. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
 
