@@ -9,12 +9,12 @@ Sistem ini menggunakan sensor kelembaban tanah, Sensor PH, sensor NPK, suhu, dan
 Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air hingga 30%, efisiensi pupuk dan meningkatkan hasil panen, sejalan dengan SDGs 2 (Zero Hunger) dan 13 (Climate Action).
 
 **Insight:**
-- Jumlah penduduk Indonesia tahun 2023 hampir mencapai 300jt, dengan pertumbuhan rata-rata sebesar 2,8jt per tahun.
+- Jumlah penduduk Indonesia tahun 2023 hampir mencapai 300jt jiwa, dengan pertumbuhan rata-rata sebesar 2,8jt jiwa per tahun.
 - Kebutuhan pangan nasional terus meningkat, sementara lahan pertanian & jumlah petani justru semakin menurun.
 - Artinya, "pertanian presisi" saat ini adalah suatu keharusan sebagai solusi dari permasalahan di Indonesia dan dunia.
 
 ## Fitur Utama 
-- Monitoring real-time kelembaban tanah, suhu tanah, dan kelembaban udara via LCD dan Blynk.
+- Monitoring real-time kelembaban tanah, suhu tanah, PH, dan kelembaban udara via LCD dan Blynk.
 - Kontrol pompa otomatis (berdasarkan setpoint kelembaban) dan manual via aplikasi.
 - Desain hemat biaya untuk petani.
 - Skalabel untuk mendukung program ketahanan pangan di Banyuwangi.
@@ -27,7 +27,6 @@ Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air h
 - [Troubleshooting](#troubleshooting)
 - [Changelog](#changelog)
 - [Kontributor](#kontributor)
-- [Lisensi](#lisensi)
 - [Kontak](#kontak)
 
 ## Kebutuhan
@@ -89,7 +88,7 @@ Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air h
    - Mode otomatis: Via Blynk V4 (ON), pompa responsif ke setpoint.
    - Mode manual: Kontrol pompa via Blynk V5.
 4. **Monitoring via Blynk**:
-   - Buka Blynk app, login, pilih template EjoBIT.
+   - Buka Blynk app, login, pilih template Datastream Smart Farming.
    - Lihat data real-time: Suhu (V1), kelembaban tanah (V2), kelembaban udara (V3).
    - Switch mode (V4) dan kontrol pompa (V5).
      
@@ -97,7 +96,7 @@ Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air h
 Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 1. **Tahap 1** : Inisialisasi Hardware dan display LCD (hari ke 1).
 - Inisialisasi NodeMCU, sensor (Soil Moisture, DHT11, DS18B20), relay, dan LCD I2C.
-- LCD menampilkan splash screen: "EjoBIT | Smart Farming".
+- LCD menampilkan splash screen: " Smart Farming | halamanhijau.id".
 - Kode: Inisialisasi library, pin konfigurasi, dan setup awal.
 - Hasil: LCD menyala, hardware siap untuk pembacaan sensor.
      ![inisialisasi](assets/inisialisasi.jpg)
@@ -119,17 +118,29 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
 - Integrasi Blynk untuk kirim data sensor (V1-V3) dan kontrol mode/pompa (V4-V5).
 - Tes: Data real-time di app, kontrol pompa via Blynk, responsif tanpa lag.
-- Hasil: Sistem lengkap, siap untuk irigasi pintar di Banyuwangi.
+- Hasil: Sistem lengkap, siap untuk digunakan.
      ![tahap4](assets/tahap4.jpeg)
 
 ## Troubleshooting
 - **WiFi Tidak Connect**: Cek SSID/password di kode, gunakan hotspot jika sinyal lemah.
+- **Sensor Error**:
+  - Soil Moisture: Cek koneksi A0, kalibrasi ulang `AirValue`/`WaterValue`.
+  - DHT11: Jika `NaN`, ganti kabel atau sensor.
+  - DS18B20: Jika `-127`, cek pin D5.
+- **Pompa Tidak Respons**: Verifikasi polaritas relay (HIGH=ON). Cek power supply 5V.
+- **LCD Blank**: Cek alamat I2C (0x27) dengan I2C Scanner sketch.
+- **Blynk** :
+     - Pembacaan moisture tiba-tiba 100%, maka check sensor.
+     - Pembacaan Humidity tiba-tiba 100%, maka check sensor.
 
 ## Changelog
 - **v0.1 (Hari 1):** Setup dasar, inisialisasi LCD, sensor, dan relay.
 - **v0.2 (Hari 1):** Inisialisasi hardware dan LCD selesai. Tes splash screen berhasil.
 - **v0.3 (Hari 2)**: Tambah kontrol pompa otomatis (hysteresis) dan manual.
-- 
+- **v0.4 (Hari 2)**: Integrasi Blynk selesai, proyek siap digunakan. Tes final: 100x cycle tanpa crash, akurasi sensor ±5%.
 
 ## Kontributor
 - Slamet Baktiman - Full Stack IoT Developer
+
+## Kontak
+- Email: [baktimanhub@gmail.com](<mailto:baktimanhub@gmail.com>)
