@@ -1,5 +1,7 @@
 //Live Coding Jagoan Digital
-
+#define BLYNK_TEMPLATE_ID "TMPL6fjy80emY"
+#define BLYNK_TEMPLATE_NAME "Quickstart Template"
+#define BLYNK_AUTH_TOKEN "Q9oUo3wiN4FN60JEVAm-nWtfUMFSJnLh"
 
 // Library sensor dan LCD
 #include <DallasTemperature.h>
@@ -7,15 +9,10 @@
 #include <DHT.h>
 #include <LiquidCrystal_I2C.h>
 
-#include "FirebaseESP8266.h"
-
 // Library Blynk & WiFi
 #include <Blynk.h>
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
-
-#define FIREBASE_HOST "led-nodemcu-bf157.firebaseio.com"
-#define FIREBASE_AUTH "8r7nLt00K1BPD1qshS71s8HoyRzPAtBQSgqVGBY"
 
 // Pin konfigurasi
 #define ONE_WIRE_BUS D5
@@ -72,7 +69,6 @@ BLYNK_WRITE(V5) {
   }
 }
 
-FirebaseDatabase firebaseData;  
 // Setup awal
 void setup(void) {
   Serial.begin(9600);
@@ -94,30 +90,6 @@ void setup(void) {
   lcd.print("Mst= %, T= C");
   lcd.setCursor(0, 1);
   lcd.print("Hum= %, P= OFF");
-}
-
-Serial.println();
-  Serial.print("Connected ...");
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  Firebase.reconnectWiFi(true);
-  if(Firebase.setInt(firebaseData, "LED", 1))
-  {
-     Serial.println("Set int data success");
-
-  }else{
-    Serial.print("Error in setInt, ");
-    Serial.println(firebaseData.errorReason());
-  }
-
-  if(Firebase.getInt(firebaseData, "LED"))
-  {
-    Serial.print("Get int data success, int = ");
-    Serial.println(firebaseData.intData());
-
-  }else{
-    Serial.print("Error in getInt, ");
-    Serial.println(firebaseData.errorReason());
-  }
 }
 
 void loop(void) {
@@ -175,15 +147,5 @@ void loop(void) {
   Serial.println(fp);
 
   delay(1500);
-
-     if(Firebase.getInt(firebaseData, "LED"))
-  {
-    Serial.print("Get int data success, int = ");
-    Serial.println(firebaseData.intData());
-  }else{
-    Serial.print("Error in getInt, ");
-    Serial.println(firebaseData.errorReason());
-  }
-  delay(2000);
   
 }
