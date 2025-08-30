@@ -4,11 +4,11 @@ Live Coding Jagoan Digital 2025
 
 **EjoBIT** adalah solusi IoT berbasis NodeMCU untuk monitoring, kontrol irigasi dan pemupukan secara otomatis pada tanaman, dirancang untuk petani yang menghadapi tantangan iklim seperti kekeringan dan banjir. 
 
-Sistem ini menggunakan sensor kelembaban tanah, sensor NPK, suhu, dan udara untuk meng-otomatisasi pompa air, menampilkan data di LCD, dan terhubung ke aplikasi Blynk untuk kontrol real-time. 
+Sistem ini menggunakan sensor kelembaban tanah, Sensor PH, sensor NPK, suhu, dan udara untuk meng-otomatisasi pompa air, menampilkan data di LCD, dan terhubung ke aplikasi Blynk untuk kontrol real-time. 
 
 Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air hingga 30%, efisiensi pupuk dan meningkatkan hasil panen, sejalan dengan SDGs 2 (Zero Hunger) dan 13 (Climate Action).
 
-Insight:
+**Insight:**
 - Jumlah penduduk Indonesia tahun 2023 hampir mencapai 300jt, dengan pertumbuhan rata-rata sebesar 2,8jt per tahun.
 - Kebutuhan pangan nasional terus meningkat, sementara lahan pertanian & jumlah petani justru semakin menurun.
 - Artinya, "pertanian presisi" saat ini adalah suatu keharusan sebagai solusi dari permasalahan di Indonesia dan dunia.
@@ -74,29 +74,40 @@ Insight:
 2. **Monitoring Sensor**:
    - Data kelembaban tanah (%), suhu tanah (°C), dan kelembaban udara (%) ditampilkan di LCD.
    - Cek Serial Monitor untuk log data (9600 baud).
+3. **Kontrol Pompa**:
+   - Mode otomatis: Pompa nyala jika kelembaban tanah <40%, mati jika >60% (hysteresis).
+   - Mode manual: Kontrol pompa via aplikasi (akan diintegrasikan dengan Blynk).
+   - Status pompa ditampilkan di LCD: "P: ON" atau "P: OFF".
+   - Tes: Simulasi tanah kering (pompa ON) dan basah (pompa OFF).
      
 ## Progres dan Live Coding
 Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
-1. **Tahap 1** : Inisialisasi Hardware dan display LCD.
+1. **Tahap 1** : Inisialisasi Hardware dan display LCD (hari ke 1).
 - Inisialisasi NodeMCU, sensor (Soil Moisture, DHT11, DS18B20), relay, dan LCD I2C.
 - LCD menampilkan splash screen: "EjoBIT | Smart Farming".
 - Kode: Inisialisasi library, pin konfigurasi, dan setup awal.
 - Hasil: LCD menyala, hardware siap untuk pembacaan sensor.
      ![inisialisasi](assets/inisialisasi.jpg)
   
-2. **Tahap 2** : Pembacaan sensor dan output ke display LCD.
+2. **Tahap 2** : Pembacaan sensor dan output ke display LCD (hari ke 1).
 - Implementasi pembacaan sensor: Soil Moisture (A0), DHT11 (D3), DS18B20 (D5).
 - Kalibrasi soil moisture (AirValue=620, WaterValue=310) untuk skala 0-100%.
 - Output data ke LCD dengan format rapi.
 - Hasil: Data sensor ditampilkan di LCD (e.g., "Mst: 45% T: 28C"), akurasi ±5%.
      ![tahap2](assets/tahap2.jpg)
   
-3. **Tahap 3** : Kontrol pompa otomatis dan manual.
-4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi.
+3. **Tahap 3** : Kontrol pompa otomatis dan manual (hari ke 2).
+- Implementasi logika kontrol pompa dengan hysteresis (SP_LOW=40%, SP_HIGH=60%).
+- Mode otomatis: Pompa responsif terhadap kelembaban tanah.
+- Mode manual: Simulasi kontrol via kode (akan dihubungkan ke Blynk).
+- Hasil: Pompa nyala/mati stabil, LCD update status pompa.
+  
+5. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
 
 ## Changelog
-- v0.1 (Hari 1): Setup dasar, inisialisasi LCD, sensor, dan relay.
-- v0.2 (Hari 1): : Inisialisasi hardware dan LCD selesai. Tes splash screen berhasil.
+- **v0.1 (Hari 1):** Setup dasar, inisialisasi LCD, sensor, dan relay.
+- **v0.2 (Hari 1):** Inisialisasi hardware dan LCD selesai. Tes splash screen berhasil.
+- **v0.3 (Hari 2)**: Tambah kontrol pompa otomatis (hysteresis) dan manual.
 - 
 
 ## Kontributor
