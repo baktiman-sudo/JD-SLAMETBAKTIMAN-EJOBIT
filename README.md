@@ -105,6 +105,9 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
   
 5. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
 
+## Troubleshooting
+- **WiFi Tidak Connect**: Cek SSID/password di kode, gunakan hotspot jika sinyal lemah.
+
 ## Changelog
 - **v0.1 (Hari 1):** Setup dasar, inisialisasi LCD, sensor, dan relay.
 - **v0.2 (Hari 1):** Inisialisasi hardware dan LCD selesai. Tes splash screen berhasil.
