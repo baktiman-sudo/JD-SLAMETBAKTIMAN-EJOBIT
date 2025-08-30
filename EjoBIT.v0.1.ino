@@ -1,7 +1,7 @@
 //Live Coding Jagoan Digital
-#define BLYNK_TEMPLATE_ID "TMPL6fjy80emY"
-#define BLYNK_TEMPLATE_NAME "Quickstart Template"
-#define BLYNK_AUTH_TOKEN "Q9oUo3wiN4FN60JEVAm-nWtfUMFSJnLh"
+#define BLYNK_TEMPLATE_ID "XXX"
+#define BLYNK_TEMPLATE_NAME "XXX"
+#define BLYNK_AUTH_TOKEN "XXX"
 
 // Library sensor dan LCD
 #include <DallasTemperature.h>
@@ -13,6 +13,8 @@
 #include <Blynk.h>
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
+
+#define BLYNK_PRINT Serial
 
 // Pin konfigurasi
 #define ONE_WIRE_BUS D5
@@ -41,6 +43,12 @@ int buttonState;
 // Nilai Set Point kelembapan tanah
 int SP_LOW = 40;  // Pompa ON jika kelembapan < SP_LOW
 int SP_HIGH = 60; // Pompa OFF jika kelembapan > SP_HIGH
+
+//---GANTI SESUAI DENGAN TOKEN BLYNK
+char auth[] = BLYNK_AUTH_TOKEN;;
+//---GANTI SESUAI DENGAN JARINGAN WIFI
+char ssid[] = "JAGOAN_DIGITAL_2025";  // Nama Hotspot/WiFi
+char pass[] = "banyuwangiku";  //  Password 
 
 // Mode otomatis / manual
 BLYNK_WRITE(V4) {
@@ -76,9 +84,9 @@ void setup(void) {
   lcd.init();
   lcd.backlight();
   lcd.clear();
-  lcd.print(" EjoBIT ");
+  lcd.print("  Smart Farming  ");
   lcd.setCursor(0, 1);
-  lcd.print(" Smart Farming ");
+  lcd.print("halamanhijau.id  ");
   delay(2000); // Tampilkan splash screen
 
   sensors.begin();
@@ -90,10 +98,19 @@ void setup(void) {
   lcd.print("Mst= %, T= C");
   lcd.setCursor(0, 1);
   lcd.print("Hum= %, P= OFF");
+
+    // Koneksi ke Blynk
+  Blynk.begin(auth, ssid, pass);   
+  delay(1500);
+  lcd.clear();
+  lcd.print("Mst=   %, T=   C");    
+  lcd.setCursor(0, 1);
+  lcd.print("Hum=   %, P= OFF");  
 }
 
 void loop(void) {
- // Baca suhu dari DS18B20
+  Blynk.run();      // proses Blynk
+  // Baca suhu dari DS18B20
   sensors.requestTemperatures();
   temp = sensors.getTempCByIndex(0);
   Serial.print("Temp : ");
@@ -141,6 +158,11 @@ void loop(void) {
     }
   }
 
+    // Kirim data ke Blynk
+  Blynk.virtualWrite(V1, temp);
+  Blynk.virtualWrite(V2,soilmoist);
+  Blynk.virtualWrite(V3,humi);
+  
   Serial.print("Sistem = ");
   Serial.println(sistem);
   Serial.print("fp = ");
