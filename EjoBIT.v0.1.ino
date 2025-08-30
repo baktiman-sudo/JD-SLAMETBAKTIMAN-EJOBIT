@@ -1,7 +1,5 @@
 //Live Coding Jagoan Digital
-#define BLYNK_TEMPLATE_ID "xxx" // pake id nya sendiri ya
-#define BLYNK_TEMPLATE_NAME "Smart Farming"
-#define BLYNK_AUTH_TOKEN "xxx" // pake id nya sendiri ya
+
 
 // Library sensor dan LCD
 #include <DallasTemperature.h>
@@ -9,12 +7,15 @@
 #include <DHT.h>
 #include <LiquidCrystal_I2C.h>
 
+#include "FirebaseESP8266.h"
+
 // Library Blynk & WiFi
 #include <Blynk.h>
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-#define BLYNK_PRINT Serial
+#define FIREBASE_HOST "led-nodemcu-bf157.firebaseio.com"
+#define FIREBASE_AUTH "8r7nLt00K1BPD1qshS71s8HoyRzPAtBQSgqVGBY"
 
 // Pin konfigurasi
 #define ONE_WIRE_BUS D5
@@ -71,6 +72,7 @@ BLYNK_WRITE(V5) {
   }
 }
 
+FirebaseDatabase firebaseData;  
 // Setup awal
 void setup(void) {
   Serial.begin(9600);
