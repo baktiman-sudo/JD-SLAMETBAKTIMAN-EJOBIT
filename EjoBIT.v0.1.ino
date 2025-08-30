@@ -1,10 +1,20 @@
 //Live Coding Jagoan Digital
+#define BLYNK_TEMPLATE_ID "xxx" // pake id nya sendiri ya
+#define BLYNK_TEMPLATE_NAME "Smart Farming"
+#define BLYNK_AUTH_TOKEN "xxx" // pake id nya sendiri ya
 
 // Library sensor dan LCD
 #include <DallasTemperature.h>
 #include <OneWire.h>
 #include <DHT.h>
 #include <LiquidCrystal_I2C.h>
+
+// Library Blynk & WiFi
+#include <Blynk.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+#define BLYNK_PRINT Serial
 
 // Pin konfigurasi
 #define ONE_WIRE_BUS D5
@@ -26,6 +36,40 @@ const int WaterValue = 310; // Nilai saat tanah basah
 int soilMoistureValue = 0;
 int soilmoist = 0;
 int humi, temp;
+
+int fp = 0, sistem = 0;
+int buttonState;
+
+// Nilai Set Point kelembapan tanah
+int SP_LOW = 40;  // Pompa ON jika kelembapan < SP_LOW
+int SP_HIGH = 60; // Pompa OFF jika kelembapan > SP_HIGH
+
+// Mode otomatis / manual
+BLYNK_WRITE(V4) {
+  buttonState = param.asInt();
+  if (buttonState == HIGH) {
+    sistem = 1; // Automatic
+    fp = 0;
+    delay(10);
+  } else if (buttonState == LOW) {
+    sistem = 0; // Manual
+    delay(10);
+  }
+}
+
+// Kontrol manual pompa
+BLYNK_WRITE(V5) {
+  buttonState = param.asInt();
+  if (sistem == 0) { // Hanya jika manual
+    if (buttonState == LOW) {
+      digitalWrite(pump, HIGH);
+      delay(10);
+    } else if (buttonState == HIGH) {
+      digitalWrite(pump, LOW);
+      delay(10);
+    }
+  }
+}
 
 // Setup awal
 void setup(void) {
@@ -83,4 +127,6 @@ void loop(void) {
   }
 
   delay(1500); // Update setiap 1.5 detik
+
+  
 }
