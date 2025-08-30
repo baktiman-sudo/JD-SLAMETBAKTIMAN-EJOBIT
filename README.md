@@ -66,6 +66,14 @@ Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air h
 4. **Setup Blynk**:
    - Daftar di [blynk.io](<https://blynk.io>), buat template dengan ID dan token di atas.
    - Widget akan dikonfigurasi setelah integrasi Blynk selesai.
+   - Daftar di [blynk.io](<https://blynk.io>), buat template:
+     - Template ID: `xxx` (gunakan ID sendiri)
+     - Template Name: `xxx` (gunakan Name sendiri)
+     - Auth Token: `xxx` (gunakan Auth sendiri)
+   - Tambah widget:
+     - Gauge: V1 (suhu), V2 (kelembaban tanah), V3 (kelembaban udara), V4 (PH Meter)
+     - Button: V4 (mode auto/manual), V5 (pompa manual).
+   - Hubungkan ke WiFi (SSID/pass di kode).
 
 ## Cara Penggunaan
 1. **Nyalakan Device**:
@@ -78,7 +86,12 @@ Proyek ini mendukung ekosistem pertanian presisi, dengan potensi menghemat air h
    - Mode otomatis: Pompa nyala jika kelembaban tanah <40%, mati jika >60% (hysteresis).
    - Mode manual: Kontrol pompa via aplikasi (akan diintegrasikan dengan Blynk).
    - Status pompa ditampilkan di LCD: "P: ON" atau "P: OFF".
-   - Tes: Simulasi tanah kering (pompa ON) dan basah (pompa OFF).
+   - Mode otomatis: Via Blynk V4 (ON), pompa responsif ke setpoint.
+   - Mode manual: Kontrol pompa via Blynk V5.
+4. **Monitoring via Blynk**:
+   - Buka Blynk app, login, pilih template EjoBIT.
+   - Lihat data real-time: Suhu (V1), kelembaban tanah (V2), kelembaban udara (V3).
+   - Switch mode (V4) dan kontrol pompa (V5).
      
 ## Progres dan Live Coding
 Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
@@ -103,7 +116,11 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
 - Hasil: Pompa nyala/mati stabil, LCD update status pompa.
      ![tahap3](assets/tahap3.png)
   
-5. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
+4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi (hari ke 2).
+- Integrasi Blynk untuk kirim data sensor (V1-V3) dan kontrol mode/pompa (V4-V5).
+- Tes: Data real-time di app, kontrol pompa via Blynk, responsif tanpa lag.
+- Hasil: Sistem lengkap, siap untuk irigasi pintar di Banyuwangi.
+     ![tahap4](assets/tahap4.jpeg)
 
 ## Troubleshooting
 - **WiFi Tidak Connect**: Cek SSID/password di kode, gunakan hotspot jika sinyal lemah.
