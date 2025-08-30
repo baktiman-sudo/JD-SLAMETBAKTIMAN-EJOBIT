@@ -25,6 +25,7 @@ Insight:
 - [Cara Penggunaan](#cara-penggunaan)
 - [Progres Live Coding](#progres-live-coding)
 - [Troubleshooting](#troubleshooting)
+- [Changelog](#changelog)
 - [Kontributor](#kontributor)
 - [Lisensi](#lisensi)
 - [Kontak](#kontak)
@@ -92,6 +93,11 @@ Proyek ini akan dikembangkan menjadi 4 tahap selama 2 hari, antara lain:
   
 3. **Tahap 3** : Kontrol pompa otomatis dan manual.
 4. **Tahap 4** : Integrasi Blynk untuk monitoring dan kontrol via aplikasi.
+
+## Changelog
+- v0.1 (Hari 1): Setup dasar, inisialisasi LCD, sensor, dan relay.
+- v0.2 (Hari 1): : Inisialisasi hardware dan LCD selesai. Tes splash screen berhasil.
+- 
 
 ## Kontributor
 - Slamet Baktiman - Full Stack IoT Developer
