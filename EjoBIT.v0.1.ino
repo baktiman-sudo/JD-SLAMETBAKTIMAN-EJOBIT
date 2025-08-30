@@ -128,5 +128,26 @@ void loop(void) {
 
   delay(1500); // Update setiap 1.5 detik
 
+    // Kontrol pompa otomatis
+  if (sistem == 1) {
+    if ((soilmoist < SP_LOW) && (fp == 0)) {
+      digitalWrite(pump, HIGH);
+      lcd.setCursor(13, 1);
+      lcd.print("ON ");
+      fp = 1;
+    } else if ((soilmoist > SP_HIGH) && (fp == 1)) {
+      digitalWrite(pump, LOW);
+      lcd.setCursor(13, 1);
+      lcd.print("OFF");
+      fp = 0;
+    }
+  }
+
+  Serial.print("Sistem = ");
+  Serial.println(sistem);
+  Serial.print("fp = ");
+  Serial.println(fp);
+
+  delay(1500);
   
 }
