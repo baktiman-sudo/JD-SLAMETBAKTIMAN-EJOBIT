@@ -96,6 +96,30 @@ void setup(void) {
   lcd.print("Hum= %, P= OFF");
 }
 
+Serial.println();
+  Serial.print("Connected ...");
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+  Firebase.reconnectWiFi(true);
+  if(Firebase.setInt(firebaseData, "LED", 1))
+  {
+     Serial.println("Set int data success");
+
+  }else{
+    Serial.print("Error in setInt, ");
+    Serial.println(firebaseData.errorReason());
+  }
+
+  if(Firebase.getInt(firebaseData, "LED"))
+  {
+    Serial.print("Get int data success, int = ");
+    Serial.println(firebaseData.intData());
+
+  }else{
+    Serial.print("Error in getInt, ");
+    Serial.println(firebaseData.errorReason());
+  }
+}
+
 void loop(void) {
  // Baca suhu dari DS18B20
   sensors.requestTemperatures();
@@ -151,5 +175,15 @@ void loop(void) {
   Serial.println(fp);
 
   delay(1500);
+
+     if(Firebase.getInt(firebaseData, "LED"))
+  {
+    Serial.print("Get int data success, int = ");
+    Serial.println(firebaseData.intData());
+  }else{
+    Serial.print("Error in getInt, ");
+    Serial.println(firebaseData.errorReason());
+  }
+  delay(2000);
   
 }
